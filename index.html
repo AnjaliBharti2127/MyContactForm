@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SERVICE</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+    </div> 
+    <div class="container">
+        <form  class="animation" onsubmit="sendEmail(); reset(); return false">
+        
+            <h2>CONNECT WITH US!!</h2>
+            <input type="hidden" name="access_key" value="cc2fb3f5-fbe0-4738-8b5b-2184cedd6136">
+        <input type="text" id="name" name="name" placeholder="Enter Name" required>
+        <input type="email" id="email" name="email" placeholder="Enter Email Id" required>
+        <input type="text" id="phone" name="phone" placeholder="Enter Phone No." required>
+        <textarea id="message"  name="message"  placeholder="Query?"></textarea>
+        <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+           function sendEmail() {
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var message = document.getElementById("message").value;
+            var name = document.getElementById("name").value;
+
+            try {(Email.send({
+                SecureToken: "060a5b8a-04f2-4b93-a585-9390b7dbf6eb",
+                To: 'anjalibharti30604@gmail.com',
+                From: 'anjalibharti30604@gmail.com',
+                Subject: message + " from " + name,
+                Body: message
+            }).then(
+                alert("Email sent successfully!")
+            ));} catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
+    </script>
+</body>
+</html>
